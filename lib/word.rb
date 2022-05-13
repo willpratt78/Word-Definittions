@@ -12,4 +12,8 @@ class Word
     @@words.values()
   end
 
+  def ==(word_to_compare)
+    
+  end
+
 end
