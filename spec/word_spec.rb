@@ -48,7 +48,7 @@ describe(".find") do
 end
 
 describe("#update") do
-  it("updates an album by id") do
+  it("updates a word by id") do
     word = Word.new("hello", nil)
     word.save()
     word.update("goofy")
