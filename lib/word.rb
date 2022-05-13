@@ -20,4 +20,8 @@ class Word
     @@words[self.id] = Word.new(self.name, self.id)
   end
 
+  def self.clear
+    
+  end
+
 end
