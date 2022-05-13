@@ -25,6 +25,7 @@ class Word
     @@id_count = 0
   end
 
-  
-
+  def self.find(id)
+    
+  end
 end
