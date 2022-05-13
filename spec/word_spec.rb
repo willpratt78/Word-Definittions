@@ -15,3 +15,13 @@ describe("#==") do
     expect(word).to(eq(word2))
   end
 end
+
+describe("#save") do
+  it("saves a word") do
+    word = Word.new("hello", nil)
+    word.save()
+    word2 = Word.new("goodbye", nil)
+    word2.save
+    expect(Word.all).to(eq([word, word2]))
+  end
+end

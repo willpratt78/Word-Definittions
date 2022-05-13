@@ -16,4 +16,8 @@ class Word
     self.name() == word_to_compare.name()
   end
 
+  def save
+    
+  end
+
 end
