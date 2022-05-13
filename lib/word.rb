@@ -29,3 +29,7 @@ class Word
     @@words[id]
   end
 end
+
+def update(name)
+  
+end

@@ -46,3 +46,12 @@ describe(".find") do
     expect(Word.find(word.id)).to(eq(word))
   end
 end
+
+describe("#update") do
+  it("updates an album by id") do
+    word = Word.new("hello", nil)
+    word.save()
+    word.update("goofy")
+    expect(word.name).to(eq("goofy"))
+  end
+end
