@@ -2,7 +2,7 @@ class Definition
   attr_reader :id
   attr_accessor :name, :word_id
 
-  @@defitnions = {}
+  @@definitions = {}
   @@id_count = 0
 
   def initialize(name, word_id, id)
@@ -11,7 +11,33 @@ class Definition
     @id = id || @@id_count += 1
   end
 
+  def ==(definition_to_compare)
+    (self.name() == definition_to_compare.name()) && (self.word_id() == definition_to_compare.word_id())
+  end
+
+  def self.all
+    @@definitions.values
+  end
+
   def save
-    @@defitnions[self.id] = Definition.new(self.name, self.word_id, self.id)
+    @@definitions[self.id] = Definition.new(self.name, self.word_id, self.id)
+  end
+
+  def self.find(id)
+    @@definitions[id]
+  end
+
+  def update(name, word_id)
+    self.name = name
+    self.word_id = word_id
+    @@definitions[self.id] = Definition.new(self.name, self.word_id, self.id)
+  end
+
+  def delete
+    @@definitions.delete(self.id)
+  end
+
+  def self.clear
+    @@definitions = {}
   end
 end

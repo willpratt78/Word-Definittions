@@ -34,7 +34,7 @@ describe '#Definition' do
     it("clears all definitions") do
       definition = Definition.new("Giant Steps", @word.id, nil)
       definition.save()
-      definition2 = Defintion.new("Naima", @word.id, nil)
+      definition2 = Definition.new("Naima", @word.id, nil)
       definition2.save()
       Definition.clear()
       expect(Definition.all).to(eq([]))
@@ -60,7 +60,7 @@ describe '#Definition' do
   end
 
   describe('#update') do
-    it("updates an definition by id") do
+    it("updates a definition by id") do
       definition = Definition.new("Naima", @word.id, nil)
       definition.save()
       definition.update("Mr. P.C.", @word.id)
