@@ -10,10 +10,10 @@
   <button type="submit">Update definition</button>
 </form>
 
-<form action="/words/<%= @definition.word.id %>/definitons/<%= @definiton.id %>" method="post">
+<form action="/words/<%= @definition.word.id %>/definitons/<%= @definition.id %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type="submit">Delete definiton</button>
 </form>
 
-<a href="/words/<%= @defintion.word.id %>">Back to <%= @defintion.word.name %></a>
+<a href="/words/<%= @definition.word.id %>">Back to <%= @definition.word.name %></a>
