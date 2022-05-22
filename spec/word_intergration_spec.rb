@@ -41,7 +41,19 @@ describe('delete a word', {:type => :feature}) do
     word.save
     visit("/words/#{word.id}/edit")
     click_on('Delete word')
-    save_and_open_page
     expect(page).not_to have_content('phone')
+  end
+end
+
+describe('update a definition', {:type => :feature}) do
+  it('updates a definition then goes to the word page') do
+    word = Word.new("hello", nil)
+    word.save
+    definition = Definition.new("a greeting", word.id, nil)
+    definition.save
+    visit("/words/#{word.id}/definitions/#{definition.id}")
+    fill_in("name", :with => "a way to greet someone")
+    click_on('Update definition')
+    expect(page).to have_content('a way to greet someone')
   end
 end
