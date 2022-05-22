@@ -23,3 +23,25 @@ describe('create a defintion path', {:type => :feature}) do
     expect(page).to have_content('a greeting')
   end
 end
+
+describe('update a word', {:type => :feature}) do
+  it('updates a word and then goes to words page') do
+    word = Word.new("hello", nil)
+    word.save
+    visit("/words/#{word.id}/edit")
+    fill_in("name", :with => "goodbye")
+    click_on('Update')
+    expect(page).to have_content('goodbye')
+  end
+end
+
+describe('delete a word', {:type => :feature}) do
+  it('deletes a word and then goes to words page') do
+    word = Word.new("phone", nil)
+    word.save
+    visit("/words/#{word.id}/edit")
+    click_on('Delete word')
+    save_and_open_page
+    expect(page).not_to have_content('phone')
+  end
+end
